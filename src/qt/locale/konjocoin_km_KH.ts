@@ -151,8 +151,8 @@
 <context>
     <name>KonjocoinGUI</name>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>ផ្ញើកាក់ទៅកាន់ អាសយដ្ឋាន Litecoin មួយ</translation>
+        <source>Send coins to a Konjocoin address</source>
+        <translation>ផ្ញើកាក់ទៅកាន់ អាសយដ្ឋាន Konjocoin មួយ</translation>
     </message>
     </context>
 <context>

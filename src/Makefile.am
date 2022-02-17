@@ -82,18 +82,18 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_KONJOCOIND
-  bin_PROGRAMS += litecoind
+  bin_PROGRAMS += konjocoind
 endif
 
 if BUILD_KONJOCOIN_CLI
-  bin_PROGRAMS += litecoin-cli
+  bin_PROGRAMS += konjocoin-cli
 endif
 if BUILD_KONJOCOIN_TX
-  bin_PROGRAMS += litecoin-tx
+  bin_PROGRAMS += konjocoin-tx
 endif
 if ENABLE_WALLET
 if BUILD_KONJOCOIN_WALLET
-  bin_PROGRAMS += litecoin-wallet
+  bin_PROGRAMS += konjocoin-wallet
 endif
 endif
 
@@ -485,16 +485,16 @@ nodist_libkonjocoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # konjocoind binary #
-litecoind_SOURCES = konjocoind.cpp
-litecoind_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
-litecoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-litecoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+konjocoind_SOURCES = konjocoind.cpp
+konjocoind_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
+konjocoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+konjocoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-litecoind_SOURCES += konjocoind-res.rc
+konjocoind_SOURCES += konjocoind-res.rc
 endif
 
-litecoind_LDADD = \
+konjocoind_LDADD = \
   $(LIBKONJOCOIN_SERVER) \
   $(LIBKONJOCOIN_WALLET) \
   $(LIBKONJOCOIN_SERVER) \
@@ -509,38 +509,38 @@ litecoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-litecoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+konjocoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # konjocoin-cli binary #
-litecoin_cli_SOURCES = konjocoin-cli.cpp
-litecoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES) $(EVENT_CFLAGS)
-litecoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-litecoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+konjocoin_cli_SOURCES = konjocoin-cli.cpp
+konjocoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES) $(EVENT_CFLAGS)
+konjocoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+konjocoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-litecoin_cli_SOURCES += konjocoin-cli-res.rc
+konjocoin_cli_SOURCES += konjocoin-cli-res.rc
 endif
 
-litecoin_cli_LDADD = \
+konjocoin_cli_LDADD = \
   $(LIBKONJOCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBKONJOCOIN_UTIL) \
   $(LIBKONJOCOIN_CRYPTO)
 
-litecoin_cli_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+konjocoin_cli_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # konjocoin-tx binary #
-litecoin_tx_SOURCES = konjocoin-tx.cpp
-litecoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
-litecoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-litecoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+konjocoin_tx_SOURCES = konjocoin-tx.cpp
+konjocoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
+konjocoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+konjocoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-litecoin_tx_SOURCES += konjocoin-tx-res.rc
+konjocoin_tx_SOURCES += konjocoin-tx-res.rc
 endif
 
-litecoin_tx_LDADD = \
+konjocoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBKONJOCOIN_COMMON) \
   $(LIBKONJOCOIN_UTIL) \
@@ -548,20 +548,20 @@ litecoin_tx_LDADD = \
   $(LIBKONJOCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-litecoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+konjocoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # konjocoin-wallet binary #
-litecoin_wallet_SOURCES = konjocoin-wallet.cpp
-litecoin_wallet_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
-litecoin_wallet_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-litecoin_wallet_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+konjocoin_wallet_SOURCES = konjocoin-wallet.cpp
+konjocoin_wallet_CPPFLAGS = $(AM_CPPFLAGS) $(KONJOCOIN_INCLUDES)
+konjocoin_wallet_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+konjocoin_wallet_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-litecoin_wallet_SOURCES += konjocoin-wallet-res.rc
+konjocoin_wallet_SOURCES += konjocoin-wallet-res.rc
 endif
 
-litecoin_wallet_LDADD = \
+konjocoin_wallet_LDADD = \
   $(LIBKONJOCOIN_WALLET_TOOL) \
   $(LIBKONJOCOIN_WALLET) \
   $(LIBKONJOCOIN_SERVER) \
@@ -574,7 +574,7 @@ litecoin_wallet_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-litecoin_wallet_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+konjocoin_wallet_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
 #
 
 # konjocoinconsensus library #

@@ -34,7 +34,7 @@ BEGIN_FOLD distdir
 DOCKER_EXEC make distdir VERSION=$HOST
 END_FOLD
 
-cd "litecoin-$HOST" || (echo "could not enter distdir litecoin-$HOST"; exit 1)
+cd "konjocoin-$HOST" || (echo "could not enter distdir konjocoin-$HOST"; exit 1)
 
 BEGIN_FOLD configure
 DOCKER_EXEC ./configure --cache-file=../config.cache $KONJOCOIN_CONFIG_ALL $KONJOCOIN_CONFIG || ( cat config.log && false)

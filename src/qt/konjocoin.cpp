@@ -174,7 +174,7 @@ void KonjocoinCore::shutdown()
 }
 
 static int qt_argc = 1;
-static const char* qt_argv = "litecoin-qt";
+static const char* qt_argv = "konjocoin-qt";
 
 KonjocoinApplication::KonjocoinApplication(interfaces::Node& node):
     QApplication(qt_argc, const_cast<char **>(&qt_argv)),
@@ -392,7 +392,7 @@ void KonjocoinApplication::shutdownResult()
 
 void KonjocoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(nullptr, "Runaway exception", KonjocoinGUI::tr("A fatal error occurred. Litecoin can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(nullptr, "Runaway exception", KonjocoinGUI::tr("A fatal error occurred. Konjocoin can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 

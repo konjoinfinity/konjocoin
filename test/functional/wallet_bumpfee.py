@@ -39,7 +39,7 @@ class BumpFeeTest(KonjocoinTestFramework):
 
     def run_test(self):
         if True:
-            raise SkipTest("Litecoin doesn't support RBF.")
+            raise SkipTest("Konjocoin doesn't support RBF.")
 
         # Encrypt wallet for test_locked_wallet_fails test
         self.nodes[1].encryptwallet(WALLET_PASSPHRASE)

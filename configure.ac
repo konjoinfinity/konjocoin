@@ -8,18 +8,18 @@ define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2020)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Litecoin Core]])
-AC_INIT([Litecoin Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/litecoin-project/litecoin/issues],[litecoin],[https://litecoin.org/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Konjocoin Core]])
+AC_INIT([Konjocoin Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/konjocoin-project/konjocoin/issues],[konjocoin],[https://konjocoin.org/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/konjocoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-KONJOCOIN_DAEMON_NAME=litecoind
-KONJOCOIN_GUI_NAME=litecoin-qt
-KONJOCOIN_CLI_NAME=litecoin-cli
-KONJOCOIN_TX_NAME=litecoin-tx
-KONJOCOIN_WALLET_TOOL_NAME=litecoin-wallet
+KONJOCOIN_DAEMON_NAME=konjocoind
+KONJOCOIN_GUI_NAME=konjocoin-qt
+KONJOCOIN_CLI_NAME=konjocoin-cli
+KONJOCOIN_TX_NAME=konjocoin-tx
+KONJOCOIN_WALLET_TOOL_NAME=konjocoin-wallet
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -426,7 +426,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build litecoin-cli litecoin-tx litecoin-wallet (default=yes)])],
+  [build konjocoin-cli konjocoin-tx konjocoin-wallet (default=yes)])],
   [build_konjocoin_utils=$withval],
   [build_konjocoin_utils=yes])
 
@@ -456,7 +456,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build litecoind daemon (default=yes)])],
+  [build konjocoind daemon (default=yes)])],
   [build_konjocoind=$withval],
   [build_konjocoind=yes])
 
@@ -1253,19 +1253,19 @@ if test x$have_protobuf != xno &&
   KONJOCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 fi
 
-AC_MSG_CHECKING([whether to build litecoind])
+AC_MSG_CHECKING([whether to build konjocoind])
 AM_CONDITIONAL([BUILD_KONJOCOIND], [test x$build_konjocoind = xyes])
 AC_MSG_RESULT($build_konjocoind)
 
-AC_MSG_CHECKING([whether to build litecoin-cli])
+AC_MSG_CHECKING([whether to build konjocoin-cli])
 AM_CONDITIONAL([BUILD_KONJOCOIN_CLI], [test x$build_konjocoin_cli = xyes])
 AC_MSG_RESULT($build_konjocoin_cli)
 
-AC_MSG_CHECKING([whether to build litecoin-tx])
+AC_MSG_CHECKING([whether to build konjocoin-tx])
 AM_CONDITIONAL([BUILD_KONJOCOIN_TX], [test x$build_konjocoin_tx = xyes])
 AC_MSG_RESULT($build_konjocoin_tx)
 
-AC_MSG_CHECKING([whether to build litecoin-wallet])
+AC_MSG_CHECKING([whether to build konjocoin-wallet])
 AM_CONDITIONAL([BUILD_KONJOCOIN_WALLET], [test x$build_konjocoin_wallet = xyes])
 AC_MSG_RESULT($build_konjocoin_wallet)
 
@@ -1366,7 +1366,7 @@ if test x$konjocoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_litecoin-qt])
+  AC_MSG_CHECKING([whether to build test_konjocoin-qt])
   if test x$use_gui_tests$konjocoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1394,7 +1394,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_litecoin])
+AC_MSG_CHECKING([whether to build test_konjocoin])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"

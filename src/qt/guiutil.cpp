@@ -106,7 +106,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
     widget->setFont(fixedPitchFont());
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Litecoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Konjocoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
     widget->setValidator(new KonjocoinAddressEntryValidator(parent));
     widget->setCheckValidator(new KonjocoinAddressCheckValidator(parent));
@@ -115,7 +115,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 bool parseKonjocoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no konjocoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("litecoin"))
+    if(!uri.isValid() || uri.scheme() != QString("konjocoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -177,7 +177,7 @@ bool parseKonjocoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatKonjocoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("litecoin:%1").arg(info.address);
+    QString ret = QString("konjocoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -546,10 +546,10 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Litecoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Konjocoin.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Litecoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Litecoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Konjocoin (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Konjocoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -629,8 +629,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "litecoin.desktop";
-    return GetAutostartDir() / strprintf("litecoin-%s.lnk", chain);
+        return GetAutostartDir() / "konjocoin.desktop";
+    return GetAutostartDir() / strprintf("konjocoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -674,9 +674,9 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Litecoin\n";
+            optionFile << "Name=Konjocoin\n";
         else
-            optionFile << strprintf("Name=Litecoin (%s)\n", chain);
+            optionFile << strprintf("Name=Konjocoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

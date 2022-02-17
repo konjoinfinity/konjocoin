@@ -7,7 +7,7 @@ dnl Output: If qt version is auto, set konjocoin_enable_qt to false. Else, exit.
 AC_DEFUN([KONJOCOIN_QT_FAIL],[
   if test "x$konjocoin_qt_want_version" = xauto && test "x$konjocoin_qt_force" != xyes; then
     if test "x$konjocoin_enable_qt" != xno; then
-      AC_MSG_WARN([$1; litecoin-qt frontend will not be built])
+      AC_MSG_WARN([$1; konjocoin-qt frontend will not be built])
     fi
     konjocoin_enable_qt=no
     konjocoin_enable_qt_test=no
@@ -54,7 +54,7 @@ AC_DEFUN([KONJOCOIN_QT_INIT],[
   dnl enable qt support
   AC_ARG_WITH([gui],
     [AS_HELP_STRING([--with-gui@<:@=no|qt5|auto@:>@],
-    [build litecoin-qt GUI (default=auto)])],
+    [build konjocoin-qt GUI (default=auto)])],
     [
      konjocoin_qt_want_version=$withval
      if test "x$konjocoin_qt_want_version" = xyes; then
