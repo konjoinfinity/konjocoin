@@ -858,7 +858,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
                   </widget>
                  </item>
                  <item>
-                  <widget class="BitcoinAmountField" name="customFee"/>
+                  <widget class="KonjocoinAmountField" name="customFee"/>
                  </item>
                  <item>
                   <spacer name="horizontalSpacer_6">
@@ -1110,7 +1110,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <string>S&amp;end</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitcoin.qrc">
+        <iconset resource="../konjocoin.qrc">
          <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
        </property>
        <property name="autoDefault">
@@ -1136,7 +1136,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <string>Clear &amp;All</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitcoin.qrc">
+        <iconset resource="../konjocoin.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
        </property>
        <property name="autoDefault">
@@ -1153,7 +1153,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <string>Add &amp;Recipient</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitcoin.qrc">
+        <iconset resource="../konjocoin.qrc">
          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
        </property>
        <property name="autoDefault">
@@ -1224,14 +1224,14 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
    <header>qt/qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>BitcoinAmountField</class>
+   <class>KonjocoinAmountField</class>
    <extends>QLineEdit</extends>
-   <header>qt/bitcoinamountfield.h</header>
+   <header>qt/konjocoinamountfield.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../konjocoin.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

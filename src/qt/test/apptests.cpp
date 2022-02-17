@@ -6,15 +6,15 @@
 
 #include <chainparams.h>
 #include <init.h>
-#include <qt/bitcoin.h>
-#include <qt/bitcoingui.h>
+#include <qt/konjocoin.h>
+#include <qt/konjocoingui.h>
 #include <qt/networkstyle.h>
 #include <qt/rpcconsole.h>
 #include <shutdown.h>
 #include <validation.h>
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/konjocoin-config.h>
 #endif
 #ifdef ENABLE_WALLET
 #include <wallet/db.h>
@@ -51,7 +51,7 @@ void TestRpcCommand(RPCConsole* console)
 }
 } // namespace
 
-//! Entry point for BitcoinApplication tests.
+//! Entry point for KonjocoinApplication tests.
 void AppTests::appTests()
 {
 #ifdef Q_OS_MAC
@@ -72,7 +72,7 @@ void AppTests::appTests()
         NetworkStyle::instantiate(QString::fromStdString(Params().NetworkIDString())));
     m_app.setupPlatformStyle();
     m_app.createWindow(style.data());
-    connect(&m_app, &BitcoinApplication::windowShown, this, &AppTests::guiTests);
+    connect(&m_app, &KonjocoinApplication::windowShown, this, &AppTests::guiTests);
     expectCallback("guiTests");
     m_app.baseInitialize();
     m_app.requestInitialize();
@@ -85,11 +85,11 @@ void AppTests::appTests()
     UnloadBlockIndex();
 }
 
-//! Entry point for BitcoinGUI tests.
-void AppTests::guiTests(BitcoinGUI* window)
+//! Entry point for KonjocoinGUI tests.
+void AppTests::guiTests(KonjocoinGUI* window)
 {
     HandleCallback callback{"guiTests", *this};
-    connect(window, &BitcoinGUI::consoleShown, this, &AppTests::consoleTests);
+    connect(window, &KonjocoinGUI::consoleShown, this, &AppTests::consoleTests);
     expectCallback("consoleTests");
     QAction* action = window->findChild<QAction*>("openRPCConsoleAction");
     action->activate(QAction::Trigger);

@@ -31,8 +31,8 @@ config.log
 config.status
 configure
 libtool
-src/config/bitcoin-config.h
-src/config/bitcoin-config.h.in
+src/config/konjocoin-config.h
+src/config/konjocoin-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -45,11 +45,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/bitcoin-qt.config
-src/qt/bitcoin-qt.creator
-src/qt/bitcoin-qt.creator.user
-src/qt/bitcoin-qt.files
-src/qt/bitcoin-qt.includes
+src/qt/konjocoin-qt.config
+src/qt/konjocoin-qt.creator
+src/qt/konjocoin-qt.creator.user
+src/qt/konjocoin-qt.files
+src/qt/konjocoin-qt.includes
 
 .deps
 .dirstamp
@@ -116,7 +116,7 @@ test/cache/*
 
 /doc/doxygen/
 
-libbitcoinconsensus.pc
+libkonjocoinconsensus.pc
 contrib/devtools/split-debug.sh
 
 # Output from running db4 installation

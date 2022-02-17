@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_HTTPSERVER_H
-#define BITCOIN_HTTPSERVER_H
+#ifndef KONJOCOIN_HTTPSERVER_H
+#define KONJOCOIN_HTTPSERVER_H
 
 #include <string>
 #include <stdint.h>
@@ -150,4 +150,4 @@ private:
 
 std::string urlDecode(const std::string &urlEncoded);
 
-#endif // BITCOIN_HTTPSERVER_H
+#endif // KONJOCOIN_HTTPSERVER_H

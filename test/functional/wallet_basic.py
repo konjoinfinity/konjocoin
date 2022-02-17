@@ -6,7 +6,7 @@
 from decimal import Decimal
 import time
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import KonjocoinTestFramework
 from test_framework.util import (
     assert_array_result,
     assert_equal,
@@ -19,7 +19,7 @@ from test_framework.util import (
 )
 
 
-class WalletTest(BitcoinTestFramework):
+class WalletTest(KonjocoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
@@ -336,10 +336,10 @@ class WalletTest(BitcoinTestFramework):
         # This will raise an exception for attempting to dump the private key of an address you do not own
         assert_raises_rpc_error(-3, "Address does not refer to a key", self.nodes[0].dumpprivkey, temp_address)
 
-        # This will raise an exception for attempting to get the private key of an invalid Bitcoin address
+        # This will raise an exception for attempting to get the private key of an invalid Konjocoin address
         assert_raises_rpc_error(-5, "Invalid Litecoin address", self.nodes[0].dumpprivkey, "invalid")
 
-        # This will raise an exception for attempting to set a label for an invalid Bitcoin address
+        # This will raise an exception for attempting to set a label for an invalid Konjocoin address
         assert_raises_rpc_error(-5, "Invalid Litecoin address", self.nodes[0].setlabel, "invalid address", "label")
 
         # This will raise an exception for importing an invalid address
@@ -413,7 +413,7 @@ class WalletTest(BitcoinTestFramework):
             '-reindex',
             '-zapwallettxes=1',
             '-zapwallettxes=2',
-            # disabled until issue is fixed: https://github.com/bitcoin/bitcoin/issues/7463
+            # disabled until issue is fixed: https://github.com/konjocoin/konjocoin/issues/7463
             # '-salvagewallet',
         ]
         chainlimit = 6

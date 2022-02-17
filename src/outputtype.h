@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_OUTPUTTYPE_H
-#define BITCOIN_OUTPUTTYPE_H
+#ifndef KONJOCOIN_OUTPUTTYPE_H
+#define KONJOCOIN_OUTPUTTYPE_H
 
 #include <attributes.h>
 #include <keystore.h>
@@ -46,5 +46,5 @@ std::vector<CTxDestination> GetAllDestinationsForKey(const CPubKey& key);
  */
 CTxDestination AddAndGetDestinationForScript(CKeyStore& keystore, const CScript& script, OutputType);
 
-#endif // BITCOIN_OUTPUTTYPE_H
+#endif // KONJOCOIN_OUTPUTTYPE_H
 

@@ -46,7 +46,7 @@ This does not affect wallet forward or backward compatibility.
 
 Litecoin 0.10.2.2 Change log
 ============================
-This release is based upon Bitcoin Core v0.10.2.  Their upstream changelog applies to us and
+This release is based upon Konjocoin Core v0.10.2.  Their upstream changelog applies to us and
 is included in as separate release-notes.  This section describes the Litecoin-specific differences.
 
 Protocol:
@@ -66,7 +66,7 @@ Protocol:
 
 Relay:
 - Litecoin Core rounds transaction size up to the nearest 1000 bytes before calculating fees.  This size rounding behavior is to mimic fee calculation of Litecoin v0.6 and v0.8.
-- Bitcoin's IsDust() is disabled in favor of Litecoin's fee-based dust penalty.
+- Konjocoin's IsDust() is disabled in favor of Litecoin's fee-based dust penalty.
 - Fee-based Dust Penalty: For each transaction output smaller than DUST_THRESHOLD (currently 0.001 LTC) the default relay/mining policy will expect an additional 1000 bytes of fee.  Otherwise the transaction will be rejected from relay/mining.  Such transactions are also disqualified from the free/high-priority transaction rule.
 - Miners and relays can adjust the expected fee per-KB with the -minrelaytxfee parameter.
 

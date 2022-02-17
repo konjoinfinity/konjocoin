@@ -4,7 +4,7 @@
 
 #include <util/strencodings.h>
 #include <util/system.h>
-#include <test/test_bitcoin.h>
+#include <test/test_konjocoin.h>
 
 #include <string>
 #include <vector>

@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  konjocoind The konjocoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: konjocoind
+# processname: konjocoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/konjocoind, see below
+if [ -f /etc/sysconfig/konjocoind ]; then
+        . /etc/sysconfig/konjocoind
+fi
+
+RETVAL=0
+
+prog=konjocoind
+# you can override the lockfile via KONJOCOIND_LOCKFILE in /etc/sysconfig/konjocoind
+lockfile=${KONJOCOIND_LOCKFILE-/var/lock/subsys/konjocoind}
+
+# konjocoind defaults to /usr/bin/konjocoind, override with KONJOCOIND_BIN
+konjocoind=${KONJOCOIND_BIN-/usr/bin/konjocoind}
+
+# konjocoind opts default to -disablewallet, override with KONJOCOIND_OPTS
+konjocoind_opts=${KONJOCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $konjocoind $konjocoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
