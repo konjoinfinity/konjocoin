@@ -9,7 +9,7 @@ RUN apt-get install -y libssl-dev libevent-dev libboost-system-dev libboost-file
 RUN apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 #BerkleyDB for wallet support
 RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:bitcoin/bitcoin
+RUN add-apt-repository -y ppa:bitcoin/bitcoin
 RUN apt-get update
 RUN wget http://download.oracle.com/berkeley-db/db-4.8.30.zip
 RUN unzip db-4.8.30.zip
