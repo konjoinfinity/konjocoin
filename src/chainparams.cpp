@@ -107,7 +107,7 @@ public:
         pchMessageStart[1] = 0xe6;
         pchMessageStart[2] = 0xf0;
         pchMessageStart[3] = 0xad;
-        nDefaultPort = 9333;
+        nDefaultPort = 8018;
         nPruneAfterHeight = 100000;
         m_assumed_blockchain_size = 22;
         m_assumed_chain_state_size = 3;
@@ -219,7 +219,7 @@ public:
         pchMessageStart[1] = 0xf9;
         pchMessageStart[2] = 0x85;
         pchMessageStart[3] = 0xdc;
-        nDefaultPort = 19335;
+        nDefaultPort = 18018;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
@@ -309,7 +309,7 @@ public:
         pchMessageStart[1] = 0xdf;
         pchMessageStart[2] = 0x80;
         pchMessageStart[3] = 0xfb;
-        nDefaultPort = 19444;
+        nDefaultPort = 18028;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 0;
         m_assumed_chain_state_size = 0;
