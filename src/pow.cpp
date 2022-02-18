@@ -41,14 +41,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
             }
             
         }
-        if (pindex->nHeight == 0) // If genesis block, return PoW limit
-{
-    return nProofOfWorkLimit;
-}
-else
-{
-    return pindex->nBits;
-}
+        return pindexLast->nBits;
     }
 
     // Go back by what we want to be 14 days worth of blocks
