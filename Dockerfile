@@ -14,7 +14,7 @@ RUN apt-get update
 RUN wget http://download.oracle.com/berkeley-db/db-4.8.30.zip
 RUN unzip db-4.8.30.zip
 RUN sed -i 's/__atomic_compare_exchange/__atomic_compare_exchange_db/g' db-4.8.30/dbinc/atomic.h
-WORKDIR db-4.8.30/build_unix
+WORKDIR /db-4.8.30/build_unix
 RUN ../dist/configure --prefix=/usr/local --enable-cxx
 RUN make
 RUN make install
