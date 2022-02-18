@@ -1,6 +1,4 @@
 FROM ubuntu:20.04
-ADD ssh-private-key /root/.ssh/id_rsa
-RUN git clone https://github.com/konjoinfinity/konjocoin.git
 COPY ./konjocoin.conf /root/.konjocoin/konjocoin.conf
 COPY . /konjocoin
 WORKDIR /konjocoin
