@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+RUN git clone https://github.com/konjoinfinity/konjocoin.git
 COPY ./konjocoin.conf /root/.konjocoin/konjocoin.conf
 COPY . /konjocoin
 WORKDIR /konjocoin
