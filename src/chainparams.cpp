@@ -66,7 +66,7 @@ public:
         consensus.nSubsidyHalvingInterval = 888888888;
         consensus.BIP16Height = 0;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S();
+        consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
@@ -187,7 +187,7 @@ public:
         consensus.nSubsidyHalvingInterval = 888888888;
         consensus.BIP16Height = 0; // always enforce P2SH BIP16 on testnet
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S();
+        consensus.BIP34Hash = uint256S("8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573");
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
