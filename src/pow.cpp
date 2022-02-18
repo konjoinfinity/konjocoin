@@ -14,6 +14,12 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 {
     assert(pindexLast != nullptr);
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
+    arith_uint256 lastTarget;
+
+    if (lastTarget.SetCompact(pindexLast->nBits) > UintToArith256(params.powLimit))
+{
+    return nProofOfWorkLimit;
+}
 
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
@@ -33,8 +39,16 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
                     pindex = pindex->pprev;
                 return pindex->nBits;
             }
+            
         }
-        return pindexLast->nBits;
+        if (pindex->nHeight == 0) // If genesis block, return PoW limit
+{
+    return nProofOfWorkLimit;
+}
+else
+{
+    return pindex->nBits;
+}
     }
 
     // Go back by what we want to be 14 days worth of blocks
