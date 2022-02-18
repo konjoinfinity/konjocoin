@@ -25,6 +25,6 @@ RUN ./configure
 RUN make
 RUN make install
 #open service port
-EXPOSE 8888 18888
+EXPOSE 8018 18018
 #run konjocoind
 CMD ["konjocoind", "--printtoconsole"]
